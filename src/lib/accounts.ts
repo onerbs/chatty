@@ -3,8 +3,6 @@
 //
 
 import {auth} from './firebase'
-import {dispatch} from './reducer'
-import {clearState} from './actions'
 
 export function signup(email: string, password: string) {
   return auth.createUserWithEmailAndPassword(email, password)
@@ -15,7 +13,7 @@ export function login(email: string, password: string) {
 }
 
 export function logout() {
-  return auth.signOut().then(() => dispatch(clearState()))
+  return auth.signOut()
 }
 
 export function getUser() {
