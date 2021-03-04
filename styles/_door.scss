@@ -1,0 +1,11 @@
+.Door {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height: 75vh;
+  span {
+    font-size: 80%;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}

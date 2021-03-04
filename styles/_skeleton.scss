@@ -1,0 +1,32 @@
+*, ::before, ::after {
+  overflow: clip;
+}
+
+:root {
+  --sidebar-width: 250px;
+  --navbar-height: 32px;
+
+  --daniela-background: var(--color-fore);
+  --daniela-foreground: var(--color-back-line);
+  --daniela-radii: var(--radii);
+}
+
+main {
+  text-align: center;
+  padding: 10%;
+}
+
+small {
+  font-size: 80%;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2rem;
+  text-align: center;
+  font-size: 90%;
+  opacity: 0.9;
+}

@@ -1,0 +1,43 @@
+//
+// Utilities
+//
+
+.left-side {
+  width: var(--sidebar-width);
+}
+
+.right-side {
+  width: calc(100% - var(--sidebar-width));
+}
+
+.padded,
+.entry {
+  padding: 0.25rem
+}
+
+input.error {
+  border-color: crimson;
+}
+
+.small {
+  font-size: 80%;
+  opacity: 0.75;
+  margin: 0;
+}
+
+.middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spread {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brick {
+  display: block;
+  width: 100%;
+}
