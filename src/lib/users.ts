@@ -55,6 +55,12 @@ export async function login(email: string, password: string): Promise<Action> {
     if (message.includes('no user record')) {
       message = 'The user does not exist'
     }
+    if (message.startsWith('The password is invalid')) {
+      message = 'Wrong password'
+    }
+    if (message.includes('network error')) {
+      return raise('Network error', '🌐')
+    }
     return raise(message)
   }
 }
