@@ -33,7 +33,7 @@ function Router() {
     if (!routes.includes(pathname)) {
       history.push(state.hash
         ? Routes.CHAT
-        : Routes.SIGN_UP
+        : Routes.HOME
       )
     }
   }, [])
