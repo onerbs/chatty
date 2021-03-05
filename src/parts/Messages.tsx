@@ -53,17 +53,7 @@ export default function Messages({ room }: props) {
 
   return room ? (
     <div className="messages right-side">
-      {hist.length > 0 &&
-        hist.map(entry => (
-          <Bubble
-            foreign={entry.author !== state.username}
-            from={entry.author}
-            key={`Message+${entry.author}+${Math.random()}`}
-            message={entry.message}
-            time={entry.date}
-          />
-        ))
-      }
+      <MessageList history={hist}/>
       <div className="sender middle">
         <textarea ref={textarea}
           value={text} rows={rows}
@@ -76,3 +66,19 @@ export default function Messages({ room }: props) {
     </div>
   ) : <span/>
 }
+
+const MessageList = React.memo(({history}: {history: Message[]}) => {
+  return (
+    <Fragment>
+      {history.map(entry => (
+        <Bubble
+          key={`Message+${entry.author}+${Math.random()}`}
+          foreign={entry.author !== state.username}
+          from={entry.author}
+          message={entry.message}
+          time={entry.date}
+        />
+      ))}
+    </Fragment>
+  )
+})
