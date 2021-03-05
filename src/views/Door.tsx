@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {Link, useHistory} from 'react-router-dom'
 import * as validate from '../lib/validators'
 import * as users from '../lib/users'
-import dispatch from '../lib/reducer'
+import {dispatch} from '../lib/reducer'
 import {Routes} from '../Chatty'
 import state from '../lib/state'
 
