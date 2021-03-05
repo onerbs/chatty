@@ -10,7 +10,11 @@ type entry = {
 // todo: 2) last message preview.
 export default function Entry({ name, action }: entry) {
   return (
-    <div className="middle entry brick" onClick={action}>
+    <div
+      title={`Open the "${name}" room`}
+      className="middle entry brick"
+      onClick={action}
+    >
       <Avatar to={name} size={40}/>
       <div className="padded brick">
         <div className="spread">
