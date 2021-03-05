@@ -1,9 +1,9 @@
 import React, { StrictMode } from 'react'
 import { render } from 'react-dom'
 
-import 'nushi.css'
+import 'nushi.scss'
 import 'daniela.css'
-import 'chatty.css'
+import 'chatty.scss'
 
 import Chatty from './Chatty'
 
@@ -20,5 +20,5 @@ render(
   <StrictMode>
     <Chatty/>
   </StrictMode>,
-  document.getElementById('root'),
+  document.getElementById('chatty'),
 )
