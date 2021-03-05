@@ -16,7 +16,7 @@ type props = {
 
 export default function Door({ text }: props) {
   const history = useHistory()
-
+  const [disabled, setDisabled] = useState(false)
   const [data, setData] = useState({
     persistent: state.persistent,
     username: '',
@@ -53,8 +53,11 @@ export default function Door({ text }: props) {
       const operation = text.route === Routes.SIGN_UP
         ? users.login
         : users.signup
+      setDisabled(true)
       if (await operation(email, password).then(dispatch)) {
         history.push(Routes.CHAT)
+      } else {
+        setDisabled(false)
       }
     }
   }
@@ -70,6 +73,7 @@ export default function Door({ text }: props) {
             name="username"
             value={data.username}
             onChange={onInputChange}
+            disabled={disabled}
           />
         </label>
         <label>Password {/* 1 */}
@@ -78,6 +82,7 @@ export default function Door({ text }: props) {
             name="password"
             value={data.password}
             onChange={onInputChange}
+            disabled={disabled}
           />
         </label>
         <label className="middle">
@@ -85,10 +90,11 @@ export default function Door({ text }: props) {
             type="checkbox"
             checked={data.persistent}
             onChange={onCheckboxChange}
+            disabled={disabled}
           />
           Remember my session
         </label>
-        <button>{text.button}</button>
+        <button disabled={disabled}>{text.button}</button>
         <span>or <Link replace to={text.route}>{text.link}</Link></span>
       </form>
     </div>
