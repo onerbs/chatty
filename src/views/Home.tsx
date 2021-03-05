@@ -1,18 +1,28 @@
-import React, {Fragment} from 'react'
+import React, {Fragment, useState} from 'react'
 import {Link} from 'react-router-dom'
 import {Routes} from '../Chatty'
+import * as users from '../lib/users'
 import state from '../lib/state'
+import { dispatch } from '../lib/reducer'
 
 // todo: 1) Ability to toggle theme.
 // todo: Write a proper description 🤪
 export default function Home() {
+  const [isLoggedIn, setLoggedIn] = useState(!!state.hash)
+
+  async function closeSession() {
+    if (!(await users.logout().then(dispatch))) {
+      setLoggedIn(false)
+    }
+  }
+
   return (
     <Fragment>
       <nav>
         <h1>Chatty</h1>
         <ul>
           {/* 1 */}
-          <Links/>
+          <Links isLoggedIn={isLoggedIn} closeSession={closeSession}/>
         </ul>
       </nav>
       <main>
@@ -39,13 +49,16 @@ export default function Home() {
   )
 }
 
-// todo: 3) Implement the `logout` route.
-function Links() {
-  return state.hash
+type props = {
+  isLoggedIn: boolean
+  closeSession(): void
+}
+
+function Links({isLoggedIn, closeSession}: props) {
+  return isLoggedIn
     ? (
       <Fragment>
-        {/* 3 */}
-        <li><Link to={`#logout`}>Log Out</Link></li>
+        <li><Link to="#" onClick={closeSession}>Log Out</Link></li>
         <li><Link to={Routes.CHAT}>Open the chat</Link></li>
       </Fragment>
     )
