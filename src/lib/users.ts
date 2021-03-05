@@ -1,4 +1,4 @@
-import {Action, clearState, saveUser, fatal, raise} from './actions'
+import {Action, clearState, saveUser, fatal, raise, doNothing} from './actions'
 import {User, getUser} from './firebase'
 import * as accounts from './accounts'
 import md5 from './md5'
@@ -60,5 +60,7 @@ export async function login(email: string, password: string): Promise<Action> {
 }
 
 export async function logout(): Promise<Action> {
-  return accounts.logout().then(() => clearState({ reason: 'Good bye! 👋' }))
+  return accounts.logout()
+    .then(() => clearState({ reason: 'Good bye! 👋' }))
+    .catch(({ message }) => doNothing(message))
 }
