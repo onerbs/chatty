@@ -15,7 +15,7 @@ export default function Menu({ room, close }: props) {
     close()
   }
   return (
-    <div className="contextmenu room">
+    <div className="Menu room">
       <p onClick={leaveRoom}>Leave room</p>
     </div>
   )

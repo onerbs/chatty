@@ -39,21 +39,21 @@ export default function Navigation({ room, setRooms, closeRoom }: props) {
 
   return (<>
     {isMenuActive && <Menu room={room} close={hideMenu}/>}
-    <div className="Navbar">
-      <div className="spread left-side">
+    <div className="Navigation">
+      <div>
         <Icon name="menu" title="Hi, I'm useless :)"/>
-        <div className="middle">
+        <span>
           <Icon name="add" title="Join a room" onClick={joinRoom}/>
           <Icon name="exit_to_app" title="Log out" onClick={closeSession}/>
-        </div>
+        </span>
       </div>
-      <div className="spread right-side">
-        <span className="middle">
+      <div>
+        <span>
           {room && <Icon name="more_vert" title="Menu" onClick={showMenu}/>}
           &nbsp;
           <b>{room}</b>
         </span>
-        <span className="middle">
+        <span>
           {room && <Icon name="close" title="Close" onClick={closeRoom}/>}
           <Avatar to={state.username}/>
         </span>

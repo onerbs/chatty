@@ -9,7 +9,7 @@ type props = {
 export default function Sidebar({ rooms, action }: props) {
   // todo: implement search input.
   return (
-    <div className="sidebar left-side">
+    <div className="Sidebar">
       {/*<input type="text" placeholder="Search"/>*/}
       {rooms.map(name => (
         <Entry

@@ -85,7 +85,7 @@ export default function Door({ text }: props) {
             disabled={disabled}
           />
         </label>
-        <label className="middle">
+        <label>
           <input
             type="checkbox"
             checked={data.persistent}

@@ -53,9 +53,9 @@ export default function Messages({ room }: props) {
   }
 
   return (
-    <div className="messages right-side">
+    <div className="Messages">
       <List history={hist}/>
-      <div className="sender middle">
+      <span>
         <textarea ref={textareaRef}
           value={text} rows={rows}
           placeholder="Type your message"
@@ -67,7 +67,7 @@ export default function Messages({ room }: props) {
           title="Use Ctrl+Enter to send"
           onClick={sendMessage}
         />
-      </div>
+      </span>
     </div>
   )
 }

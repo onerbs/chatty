@@ -16,7 +16,7 @@ function Allow() {
 
   return <>
     <Navigation room={room} setRooms={setRooms} closeRoom={closeRoom}/>
-    <div className="chat">
+    <div className="Chat">
       <Sidebar rooms={rooms} action={setRoom}/>
       <Messages room={room}/>
     </div>
