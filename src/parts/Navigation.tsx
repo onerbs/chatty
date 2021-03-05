@@ -25,8 +25,10 @@ export default function Navigation({ room, setRooms, closeRoom }: props) {
 
   async function joinRoom() {
     input('Join a room', 'Name', validate.roomname).then(async room => {
-      await rooms.join(room).then(dispatch)
-      setRooms(prevState => ([ ...prevState, room ]))
+      if (room) {
+        await rooms.join(room).then(dispatch)
+        setRooms(prevState => ([ ...prevState, room ]))
+      }
     })
   }
 
