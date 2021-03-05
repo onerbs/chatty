@@ -6,7 +6,7 @@ import Icon from './Icon'
 import Menu from './Menu'
 import {dispatch} from '../lib/reducer'
 import * as rooms from '../lib/rooms'
-import * as accounts from '../lib/accounts'
+import * as users from '../lib/users'
 import * as validate from '../lib/validators'
 import {Routes} from '../Chatty'
 import state from '../lib/state'
@@ -33,8 +33,9 @@ export default function Navigation({ room, setRooms, closeRoom }: props) {
   }
 
   async function closeSession() {
-    await accounts.logout()
-    history.push(Routes.HOME)
+    if (!await users.logout().then(dispatch)) {
+      history.push(Routes.HOME)
+    }
   }
 
   return (<>
