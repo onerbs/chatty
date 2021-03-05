@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
 import {getMessages, getRoom, Message} from '../../lib/firebase'
-import MessageList from './MessageList'
+import List from './List'
 import Icon from '../Icon'
 import * as rooms from '../../lib/rooms'
 import {dispatch} from '../../lib/reducer'
@@ -52,7 +52,7 @@ export default function Messages({ room }: props) {
 
   return room ? (
     <div className="messages right-side">
-      <MessageList history={hist}/>
+      <List history={hist}/>
       <div className="sender middle">
         <textarea ref={textareaRef}
           value={text} rows={rows}
