@@ -6,9 +6,9 @@ export default defineConfig({
   plugins: [reactRefresh()],
   resolve: {
     alias: {
-      'nushi.css': '../node_modules/@onerbs/nushi/dist/nushi.min.css',
-      'daniela.css': '../node_modules/@onerbs/daniela/dist/daniela.min.css',
-      'chatty.css': '../styles/chatty.min.css',
+      'nushi.scss': '../node_modules/@onerbs/nushi/src/nushi.scss',
+      'daniela.css': '../node_modules/daniela/dist/daniela.min.css',
+      'chatty.scss': '../styles/chatty.scss',
     }
   }
 })
