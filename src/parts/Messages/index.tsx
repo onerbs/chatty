@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {Fragment, useState, useEffect, useRef} from 'react'
 import {getMessages, getRoom, Message} from '../../lib/firebase'
 import List from './List'
 import Icon from '../Icon'
@@ -11,6 +11,8 @@ type props = {
 }
 
 export default function Messages({ room }: props) {
+  if (!room) return <Fragment/>
+
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const [hist, setHist] = useState<Message[]>([])
   const [text, setText] = useState('')
@@ -50,7 +52,7 @@ export default function Messages({ room }: props) {
     ev.ctrlKey && ev.key === 'Enter' && sendMessage()
   }
 
-  return room ? (
+  return (
     <div className="messages right-side">
       <List history={hist}/>
       <div className="sender middle">
@@ -67,5 +69,5 @@ export default function Messages({ room }: props) {
         />
       </div>
     </div>
-  ) : <span/>
+  )
 }
