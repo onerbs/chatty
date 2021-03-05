@@ -3,7 +3,7 @@ import {toast} from 'daniela'
 import state from './state'
 
 export function dispatch(action: Action): boolean {
-  const savedState = state.current
+  const prevState = state.current
 
   switch (action.type) {
     case 'CLEAR_STATE':
@@ -22,26 +22,20 @@ export function dispatch(action: Action): boolean {
 
     case 'SAVE_USER':
       if (action.user) {
-        state.update({...savedState, ...action.user})
+        state.update({...prevState, ...action.user})
         break
       }
       return false
 
     case 'JOIN_ROOM':
       if (action.room) {
-        state.update({...savedState, rooms: [...savedState.rooms, action.room]})
+        state.update({...prevState, rooms: [...prevState.rooms, action.room]})
         break
       }
       return false
 
     case 'DO_NOTHING':
-      if (action.reason) {
-        console.info(action.reason)
-        return true
-      }
-      return false
+      console.log({ reason: action.reason })
   }
-
-  console.info(`Success: ${action.type}`)
   return true
 }
