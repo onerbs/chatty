@@ -1,6 +1,8 @@
 {
+  "private": true,
   "name": "@onerbs/chat",
   "version": "0.2.0",
+  "description": "A room-based real-time chat application",
   "author": "Alejandro Elí",
   "license": "MIT",
   "scripts": {
