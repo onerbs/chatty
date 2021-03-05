@@ -2,10 +2,6 @@ import {State} from './firebase'
 import Bowser from 'bowser'
 import md5 from './md5'
 
-export const getState = () => (
-  new ApplicationState()
-)
-
 type StateType = Storage & State<string>
 
 class ApplicationState implements State {
@@ -111,19 +107,25 @@ class ApplicationState implements State {
   }
 }
 
+const FIELD_DELIMITER = ';'
+const PERSISTENT = 'persistent'
+const TRUE = true.toString()
+
+const state = new ApplicationState()
+export default state
+
 /** Check that the session is valid */
 export function isValidSession(): boolean {
-  const storage = getState()
   const token = genToken()
-  if (storage.token) {
-    if (storage.token !== token) {
+  if (state.token) {
+    if (state.token !== token) {
       clearStorage(localStorage)
       clearStorage(sessionStorage)
-      storage.token = token
+      state.token = token
       return false
     }
   } else {
-    storage.token = token
+    state.token = token
   }
   return true
 }
@@ -148,7 +150,3 @@ function clearStorage(storage: Storage): void {
     storage.clear()
   }
 }
-
-const FIELD_DELIMITER = ';'
-const PERSISTENT = 'persistent'
-const TRUE = true.toString()

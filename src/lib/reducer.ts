@@ -1,9 +1,8 @@
 import {Action} from './actions'
-import {getState} from './state'
 import {toast} from 'daniela'
+import state from './state'
 
 export function dispatch(action: Action): boolean {
-  const state = getState()
   const savedState = state.current
 
   switch (action.type) {

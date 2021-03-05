@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom'
 import Navigation from '../parts/Navigation'
 import Sidebar from '../parts/Sidebar'
 import Messages from '../parts/Messages'
-import {getState} from '../lib/state'
 import {Routes} from '../Chatty'
-
-const state = getState()
+import state from '../lib/state'
 
 function Allow() {
   const [room, setRoom] = useState('')

@@ -3,8 +3,8 @@ import {Link, useHistory} from 'react-router-dom'
 import * as validate from '../lib/validators'
 import * as users from '../lib/users'
 import dispatch from '../lib/reducer'
-import {getState} from '../lib/state'
 import {Routes} from '../Chatty'
+import state from '../lib/state'
 
 type props = {
   text: {
@@ -15,7 +15,6 @@ type props = {
 }
 
 export default function Door({ text }: props) {
-  const state = getState()
   const history = useHistory()
 
   const [data, setData] = useState({

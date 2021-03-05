@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {BrowserRouter, Route, Switch, useHistory} from 'react-router-dom'
-import {getState} from './lib/state'
+import state from './lib/state'
 
 const Home = React.lazy(() => import('./views/Home'))
 const Chat = React.lazy(() => import('./views/Chat'))
@@ -31,7 +31,6 @@ function Router() {
     const routes = Object.values(Routes)
     const { pathname } = history.location
     if (!routes.includes(pathname)) {
-      const state = getState()
       history.push(state.hash
         ? Routes.CHAT
         : Routes.SIGN_UP

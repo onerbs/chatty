@@ -1,11 +1,10 @@
 import {Message, arrayUnion, getRoom, getUser, pushMessage} from './firebase'
 import {decide} from 'daniela'
 import {Action, doNothing, joinRoom} from './actions'
-import {getState} from './state'
 import * as accounts from './accounts'
+import state from './state'
 
 export async function join(name: string): Promise<Action> {
-  const state = getState()
   if (state.rooms.includes(name)) {
     return doNothing(`Already joined to ${name}`)
   }

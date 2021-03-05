@@ -8,8 +8,8 @@ import {dispatch} from '../lib/reducer'
 import * as rooms from '../lib/rooms'
 import * as accounts from '../lib/accounts'
 import * as validate from '../lib/validators'
-import {getState} from '../lib/state'
 import {Routes} from '../Chatty'
+import state from '../lib/state'
 
 type props = {
   room: string
@@ -18,12 +18,10 @@ type props = {
 }
 
 export default function Navigation({ room, setRooms, closeRoom }: props) {
+  const history = useHistory()
   const [isMenuActive, setMenuActive] = useState(false)
   const showMenu = () => setMenuActive(() => true)
   const hideMenu = () => setMenuActive(() => false)
-
-  const state = getState()
-  const history = useHistory()
 
   async function joinRoom() {
     input('Join a room', 'Name', validate.roomname).then(async room => {

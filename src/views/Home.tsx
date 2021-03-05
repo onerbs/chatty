@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
 import {Link} from 'react-router-dom'
-import {getState} from '../lib/state'
 import {Routes} from '../Chatty'
+import state from '../lib/state'
 
 // todo: 1) Ability to toggle theme.
 // todo: Write a proper description 🤪
@@ -41,7 +41,6 @@ export default function Home() {
 
 // todo: 3) Implement the `logout` route.
 function Links() {
-  const state = getState()
   return state.hash
     ? (
       <Fragment>
