@@ -1,8 +1,9 @@
 import React, {Fragment} from 'react'
+import {Message} from '../../lib/firebase'
 import Bubble from '../Bubble'
 import state from '../../lib/state'
 
-function MessageList({history}: {history: Message[]}) {
+function List({history}: {history: Message[]}) {
   return (
     <Fragment>
       {history.map(entry => (
@@ -18,4 +19,4 @@ function MessageList({history}: {history: Message[]}) {
   )
 }
 
-export default React.memo(MessageList)
+export default React.memo(List)
