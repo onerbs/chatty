@@ -9,6 +9,9 @@ import Chatty from './Chatty'
 
 import md5 from './lib/md5'
 import {isValidSession} from './lib/state'
+import {setupTheme} from './lib/theme'
+
+setupTheme()
 
 console.assert(isValidSession(), 'The session has expired.')
 console.assert(
