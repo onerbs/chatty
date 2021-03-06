@@ -9,7 +9,7 @@ import { dispatch } from '../lib/reducer'
 // todo: Write a proper description 🤪
 export default function Home() {
   return (
-    <Fragment>
+    <div className="Home">
       <nav>
         <h1>Chatty</h1>
         <ul>
@@ -18,26 +18,22 @@ export default function Home() {
         </ul>
       </nav>
       <main>
-        <h2>A room-based chat app</h2>
+        <h2>A <mark>room-based</mark> chat app</h2>
         <p>
-          {/* 3 */}
           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Aliquid blanditiis ea hic impedit libero maxime,
-          nostrum optio repellat repellendus sint sit voluptas voluptate.
+          Aliquid blanditiis ea hic impedit libero maxime.
+        </p>
+        <h2><mark>Real-time</mark> interaction</h2>
+        <p>
+          Nostrum optio repellat repellendus sint sit voluptas voluptate.
           Aliquid, amet dolor necessitatibus nemo officiis recusandae<i>!</i>
         </p>
-        <br/>
-        <small>
-          Copyright &copy; 2020&ndash;2021 Alejandro El&iacute;<br/>
-          Released under the MIT License<br/>Review the source code on 
-          <a href="https://github.com/onerbs/chatty" target="_blank">GitHub</a>.
-        </small>
       </main>
       <footer>
-        Created with <span style={{color: "var(--color-link)"}}>&hearts;</span> 
-        by <a href="https://github.com/onerbs" target="_blank">@onerbs</a>
+        <span>Copyright &copy; 2020&ndash;2021 Alejandro El&iacute;</span>
+        <span>Review the source code on <a href="https://github.com/onerbs/chatty" target="_blank">GitHub</a></span>
       </footer>
-    </Fragment>
+    </div>
   )
 }
 
