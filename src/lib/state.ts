@@ -82,34 +82,27 @@ class ApplicationState implements State {
     this.token = genToken()
   }
 
-  get persistent() {
+  get persistent(): boolean {
     return isPersistent(this.storage)
   }
 
   set persistent(persistent: boolean) {
-    if (!this.persistent === persistent) {
-      const keys = Object.keys(this.storage)
-      const oldStorage = this.storage
-      const newStorage = this.persistent
-        ? sessionStorage
-        : localStorage
-      for (let key of keys) {
-        newStorage.setItem(key, `${oldStorage.getItem(key)}`)
-      }
+    if (this.persistent !== persistent) {
+      const newStorage = persistent
+        ? localStorage
+        : sessionStorage
       if (persistent) {
-        newStorage.setItem(PERSISTENT, TRUE)
+        newStorage.PERSIST = true
       } else {
-        newStorage.removeItem(PERSISTENT)
+        delete this.storage.PERSIST
       }
-      oldStorage.clear()
+      transfer(this.storage, newStorage)
       this.storage = newStorage as StateType
     }
   }
 }
 
 const FIELD_DELIMITER = ';'
-const PERSISTENT = 'persistent'
-const TRUE = true.toString()
 
 const state = new ApplicationState()
 export default state
@@ -130,9 +123,9 @@ export function isValidSession(): boolean {
   return true
 }
 
-/** Check if the specified storage is persistent or not */
+/** Check if the specified storage is persistent */
 function isPersistent(storage: Storage): boolean {
-  return storage.getItem(PERSISTENT) === TRUE
+  return storage.PERSIST === 'true'
 }
 
 /** Generate a new session token */
@@ -143,10 +136,21 @@ function genToken(): string {
 
 /** Clear the storage */
 function clearStorage(storage: Storage): void {
-  if (isPersistent(storage)) {
-    storage.clear()
-    storage.setItem(PERSISTENT, TRUE)
-  } else {
-    storage.clear()
+  for (const key of getDeletableKeys(storage)) {
+    delete storage[key]
   }
+}
+
+/** Transfer the data from one Storage to another */
+function transfer(source: Storage, destiny: Storage): void {
+  for (const key of getDeletableKeys(source)) {
+    destiny[key] = source[key]
+    delete source[key]
+  }
+}
+
+/** Get the Object keys in lowercase */
+function getDeletableKeys(source: Storage): string[] {
+  return Object.keys(source)
+    .filter(it => it !== it.toUpperCase())
 }
