@@ -11,18 +11,14 @@ type props = {
   onClick?(event: any): void
 }
 
-export default function Icon({ name, title, small = false, onClick }: props) {
+export default function Icon({ name, title, onClick }: props) {
   return (
     <i
-      className={getClassName(small)}
+      className="icon"
       onClick={onClick}
       title={title}
     >
       {name}
     </i>
   )
-}
-
-function getClassName(small: boolean): string {
-  return small ? 'icon small' : 'icon'
 }
