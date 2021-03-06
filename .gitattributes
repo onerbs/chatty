@@ -1,1 +1,2 @@
-styles/_icons.scss -linguist-detectable
+*.html -linguist-detectable
+*.scss -linguist-detectable
