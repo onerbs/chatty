@@ -1,0 +1,20 @@
+//
+// Styles for the `Menu` component
+//
+
+@use 'util'
+@use 'color'
+
+.Menu
+  @include color.inverted
+  @extend %radii
+  position: absolute
+
+  p
+    margin: 0
+    padding: .5em
+    cursor: pointer
+
+  &.room
+    left: calc(var(--sidebar-width) + 1em)
+    top: calc(var(--navbar-height) + 1em)

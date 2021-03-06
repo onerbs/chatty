@@ -1,0 +1,20 @@
+//
+// Styles for the `Sidebar` component
+//
+
+@use 'util'
+@use 'color'
+
+.Sidebar
+  @include util.left-side
+
+  input
+    flex-grow: 1
+
+  .entry
+    display: flex
+    cursor: pointer
+
+  .badge
+    @extend %meta-back
+    @extend %radii

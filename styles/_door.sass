@@ -1,0 +1,36 @@
+//
+// Styles for the `Door` view
+//
+
+@use 'util'
+
+.Door
+  height: 75vh
+  @extend %middle
+
+  form
+    > a
+      color: inherit
+      text-decoration: none
+      background: inherit
+      outline: none
+
+    input.error
+      box-shadow: inset 0 0 0 2px var(--color-fail)
+
+    label > .icon
+      font-size: 20px
+      transform: translateY(34px)
+      opacity: 0.7
+      float: right
+      margin-right: 8px
+
+
+    label:last-of-type
+      text-align: center
+      cursor: pointer
+
+    span
+      font-size: 80%
+      text-align: center
+      margin-top: 1rem

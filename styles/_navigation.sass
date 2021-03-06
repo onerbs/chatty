@@ -1,0 +1,20 @@
+//
+// Styles for the `Navigation` component
+//
+
+@use 'util'
+
+.Navigation
+  @include util.vcenter
+  height: var(--navbar-height)
+
+  > :first-child
+    @extend %spread
+    @include util.left-side
+
+  > :nth-child(2)
+    @extend %spread
+    @include util.right-side
+
+  > div > span
+    @include util.vcenter

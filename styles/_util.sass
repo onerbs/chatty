@@ -1,0 +1,25 @@
+//
+// Utilities
+//
+
+@mixin left-side
+  width: var(--sidebar-width)
+
+@mixin right-side
+  width: calc(100vw - var(--sidebar-width))
+
+@mixin vcenter
+  display: flex
+  align-items: center
+
+
+%middle
+  @include vcenter
+  justify-content: center
+
+%spread
+  @include vcenter
+  justify-content: space-between
+
+%radii
+    border-radius: var(--radii)

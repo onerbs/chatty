@@ -1,0 +1,71 @@
+//
+// Styles for the `Messages` component
+//
+
+@use 'util'
+@use 'color'
+
+@mixin _small
+  font-size: 70%
+  font-weight: light
+  opacity: 0.6
+
+.Messages
+  @include util.right-side
+  background-color: var(--color-back-line)
+  border-top-left-radius: var(--radii)
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+  padding: .5rem
+  -moz-border-radius-topleft: var(--radii)
+
+  // Item
+  > div
+
+    small
+      @include _small
+      font-style: italic
+
+    // Bubble
+    div
+      background-color: var(--color-back)
+      @extend %radii
+      margin: .15rem 0
+      padding: .5rem
+      position: relative
+      width: 80%
+
+      p
+        line-height: 1
+        margin: 0
+
+      &.foreign
+        @extend %meta-back
+
+      &:not(.foreign)
+        float: right
+
+      // Time
+      > :last-child
+        @include _small
+        bottom: .25rem
+        margin: 0
+        position: absolute
+        right: .25rem
+
+  // Textbox
+  > span
+    @extend %middle
+    margin-top: .75rem
+
+    textarea
+      flex-grow: 1
+      font-size: 80%
+      margin-right: 0.5rem
+      resize: none
+
+    i
+      @extend %meta-back
+      @extend %radii
+      padding: 0.18rem
