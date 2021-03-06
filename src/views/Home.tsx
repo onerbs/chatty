@@ -8,20 +8,12 @@ import { dispatch } from '../lib/reducer'
 
 // todo: Write a proper description 🤪
 export default function Home() {
-  const [isLoggedIn, setLoggedIn] = useState(!!state.hash)
-
-  async function closeSession() {
-    if (!(await users.logout().then(dispatch))) {
-      setLoggedIn(false)
-    }
-  }
-
   return (
     <Fragment>
       <nav>
         <h1>Chatty</h1>
         <ul>
-          <Links isLoggedIn={isLoggedIn} closeSession={closeSession}/>
+          <Links/>
           <li><ToggleDarkMode/></li>
         </ul>
       </nav>
@@ -49,17 +41,23 @@ export default function Home() {
   )
 }
 
-type props = {
-  isLoggedIn: boolean
-  closeSession(): void
-}
+function Links() {
+  const [isLoggedIn, setLoggedIn] = useState(!!state.hash)
+  const [isLoggingOut, setLoggingOut] = useState(false)
 
-function Links({isLoggedIn, closeSession}: props) {
+  async function closeSession() {
+    setLoggingOut(true)
+    if (!(await users.logout().then(dispatch))) {
+      setLoggedIn(false)
+    }
+    setLoggingOut(false)
+  }
+
   return isLoggedIn
     ? (
       <Fragment>
-        <li><Link to="#" onClick={closeSession}>Log Out</Link></li>
-        <li><Link to={Routes.CHAT}>Open the chat</Link></li>
+        <li><Link disabled={isLoggingOut} to="#" onClick={closeSession}>Log Out</Link></li>
+        <li><Link disabled={isLoggingOut} to={Routes.CHAT}>Open the chat -&gt;</Link></li>
       </Fragment>
     )
     : (
