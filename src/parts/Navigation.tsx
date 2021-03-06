@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
-import {input} from 'daniela'
+import {input} from '@onerbs/daniela'
 import Avatar from './Avatar'
 import Icon from './Icon'
 import Menu from './Menu'

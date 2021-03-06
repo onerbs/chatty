@@ -1,5 +1,5 @@
 import {Message, arrayUnion, getRoom, getUser, pushMessage} from './firebase'
-import {decide} from 'daniela'
+import {decide} from '@onerbs/daniela'
 import {Action, doNothing, joinRoom} from './actions'
 import * as accounts from './accounts'
 import state from './state'

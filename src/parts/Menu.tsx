@@ -1,5 +1,5 @@
 import React from 'react'
-import { decide } from 'daniela'
+import {decide} from '@onerbs/daniela'
 
 type props = {
   room: string,

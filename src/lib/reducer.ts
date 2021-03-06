@@ -1,5 +1,5 @@
 import {Action} from './actions'
-import {toast} from 'daniela'
+import {toast} from '@onerbs/daniela'
 import state from './state'
 
 export function dispatch(action: Action): boolean {
