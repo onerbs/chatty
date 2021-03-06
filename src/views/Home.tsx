@@ -1,11 +1,11 @@
 import React, {Fragment, useState} from 'react'
 import {Link} from 'react-router-dom'
+import ToggleDarkMode from '../parts/ToggleDarkMode'
 import {Routes} from '../Chatty'
 import * as users from '../lib/users'
 import state from '../lib/state'
 import { dispatch } from '../lib/reducer'
 
-// todo: 1) Ability to toggle theme.
 // todo: Write a proper description 🤪
 export default function Home() {
   const [isLoggedIn, setLoggedIn] = useState(!!state.hash)
@@ -21,8 +21,8 @@ export default function Home() {
       <nav>
         <h1>Chatty</h1>
         <ul>
-          {/* 1 */}
           <Links isLoggedIn={isLoggedIn} closeSession={closeSession}/>
+          <li><ToggleDarkMode/></li>
         </ul>
       </nav>
       <main>
