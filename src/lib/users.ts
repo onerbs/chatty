@@ -1,7 +1,7 @@
-import {Action, clearState, saveUser, fatal, raise, doNothing} from './actions'
-import {User, getUser} from './firebase'
+import { Action, clearState, saveUser, fatal, raise, doNothing } from './actions'
+import { User, getUser } from './firebase'
+import { md5 } from '@onerbs/hashy'
 import * as accounts from './accounts'
-import {md5} from '@onerbs/hashy'
 
 export async function signup(email: string, password: string): Promise<Action> {
   const username = email.split('@')[0]
@@ -25,7 +25,7 @@ export async function signup(email: string, password: string): Promise<Action> {
       }
     } else return fatal('UID failure')
   } catch (ex) {
-    let {message} = ex
+    let { message } = ex
     if (message.includes('already in use')) {
       message = 'The username is taken'
     }
@@ -39,7 +39,7 @@ export async function login(email: string, password: string): Promise<Action> {
     if (!credentials.user) {
       return raise(`Can't read user credentials`)
     }
-    const {uid} = credentials.user
+    const { uid } = credentials.user
     const snapshot = await getUser(uid).get()
     if (!snapshot.exists) {
       return fatal(`The user's document does not exist`)
@@ -51,7 +51,7 @@ export async function login(email: string, password: string): Promise<Action> {
       return raise('Got no data')
     }
   } catch (ex) {
-    let {message} = ex
+    let { message } = ex
     if (message.includes('no user record')) {
       message = 'The user does not exist'
     }

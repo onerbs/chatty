@@ -2,7 +2,7 @@
 // Firebase `auth` wrapper functions.
 //
 
-import {auth} from './firebase'
+import { auth } from './firebase'
 
 export function signup(email: string, password: string) {
   return auth.createUserWithEmailAndPassword(email, password)

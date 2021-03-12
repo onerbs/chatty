@@ -13,9 +13,7 @@ export function toggleDarkMode(): boolean {
   return status
 }
 
-/**
- * Detect the current browser theme.
- */
+/** Detect the current browser theme. */
 export function detectCurrentTheme(): void {
   if (localStorage.DARK_MODE === 'false') return
   const QUERY = '(prefers-color-scheme: dark)'

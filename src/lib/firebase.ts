@@ -1,7 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
-import {md5} from '@onerbs/hashy'
+import { md5 } from '@onerbs/hashy'
 
 const app = firebase.initializeApp({
   apiKey: 'AIzaSyDcMFlMPQgJmgDQMUPCOBj7CfLFUSwGu7g',
@@ -13,7 +13,7 @@ const app = firebase.initializeApp({
   storageBucket: 'chatapp-219eb.appspot.com',
 })
 
-export const {arrayUnion, arrayRemove} = firebase.firestore.FieldValue
+export const { arrayUnion, arrayRemove } = firebase.firestore.FieldValue
 export const auth = app.auth()
 
 type S = string | string[]
@@ -121,7 +121,7 @@ export async function getMessages(room: string): Promise<Message[]> {
 export async function pushMessage(room: string, message: Message) {
   const cloudMessage = toCloudMessage(message)
   await (getHistory(room).doc(`${cloudMessage.date}`).set(cloudMessage))
-  return getRoom(room).update({$: cloudMessage.date})
+  return getRoom(room).update({ $: cloudMessage.date })
 }
 
 /**

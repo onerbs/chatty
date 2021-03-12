@@ -1,6 +1,6 @@
-import {State} from './firebase'
+import { State } from './firebase'
+import { sha1 } from '@onerbs/hashy'
 import Bowser from 'bowser'
-import {sha1} from '@onerbs/hashy'
 
 type StateType = Storage & State<string>
 
@@ -69,10 +69,10 @@ class ApplicationState implements State {
 
   /** Update the storage with the provided store */
   update(state: State): void {
-    this.hash        = state.hash
-    this.rooms       = state.rooms
-    this.token       = state.token
-    this.username    = state.username
+    this.hash = state.hash
+    this.rooms = state.rooms
+    this.token = state.token
+    this.username = state.username
     this.displayName = state.displayName
   }
 

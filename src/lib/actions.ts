@@ -1,4 +1,4 @@
-import {State, User} from './firebase'
+import { State, User } from './firebase'
 
 export type Actions
   = 'DO_NOTHING'

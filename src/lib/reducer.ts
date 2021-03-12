@@ -1,5 +1,5 @@
-import {Action} from './actions'
-import {toast} from '@onerbs/daniela'
+import { Action } from './actions'
+import { toast } from '@onerbs/daniela'
 import state from './state'
 
 export function dispatch(action: Action): boolean {
@@ -22,14 +22,14 @@ export function dispatch(action: Action): boolean {
 
     case 'SAVE_USER':
       if (action.user) {
-        state.update({...prevState, ...action.user})
+        state.update({ ...prevState, ...action.user })
         break
       }
       return false
 
     case 'JOIN_ROOM':
       if (action.room) {
-        state.update({...prevState, rooms: [...prevState.rooms, action.room]})
+        state.update({ ...prevState, rooms: [...prevState.rooms, action.room] })
         break
       }
       return false

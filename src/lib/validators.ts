@@ -1,4 +1,4 @@
-import {toast} from '@onerbs/daniela'
+import { toast } from '@onerbs/daniela'
 
 /**
  * Validate a password.
