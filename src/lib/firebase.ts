@@ -1,7 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
-import md5 from './md5'
+import {md5} from '@onerbs/hashy'
 
 const app = firebase.initializeApp({
   apiKey: 'AIzaSyDcMFlMPQgJmgDQMUPCOBj7CfLFUSwGu7g',
@@ -85,7 +85,7 @@ export function getUser(uid: string): Document<User> {
  * @param name - The name of the room
  */
 export function getRoom(name: string): Document<Room> {
-  return getCollection<Room>('rooms').doc(md5(name))
+  return getCollection<Room>('rooms').doc(md5.hash(name))
 }
 
 /**

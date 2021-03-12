@@ -1,14 +1,14 @@
 import {Action, clearState, saveUser, fatal, raise, doNothing} from './actions'
 import {User, getUser} from './firebase'
 import * as accounts from './accounts'
-import md5 from './md5'
+import {md5} from '@onerbs/hashy'
 
 export async function signup(email: string, password: string): Promise<Action> {
   const username = email.split('@')[0]
   // Q: subscribe to the `Chatty` room for info and announcements?
   const candidate: User = {
     displayName: username,
-    hash: md5(email),
+    hash: md5.hash(email),
     rooms: [],
     username,
   }

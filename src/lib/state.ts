@@ -1,6 +1,6 @@
 import {State} from './firebase'
 import Bowser from 'bowser'
-import md5 from './md5'
+import {sha1} from '@onerbs/hashy'
 
 type StateType = Storage & State<string>
 
@@ -131,7 +131,7 @@ function isPersistent(storage: Storage): boolean {
 /** Generate a new session token */
 function genToken(): string {
   const browserInfo = Bowser.parse(navigator.userAgent)
-  return md5(JSON.stringify(browserInfo))
+  return sha1.hash(JSON.stringify(browserInfo))
 }
 
 /** Clear the storage */
