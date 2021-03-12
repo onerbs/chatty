@@ -14,10 +14,9 @@ export function toggleDarkMode(): boolean {
 }
 
 /**
- * Initialize the theme status on application startup.
- * This function is meant to be called once.
+ * Detect the current browser theme.
  */
-export function setupTheme() {
+export function detectCurrentTheme(): void {
   if (localStorage.DARK_MODE === 'false') return
   const QUERY = '(prefers-color-scheme: dark)'
   setDarkMode(isDarkMode() || matchMedia(QUERY).matches)
