@@ -1,6 +1,3 @@
-const QUERY = '(prefers-color-scheme: dark)'
-const ROOT = document.documentElement
-
 /** Check if the dark mode is currently active. */
 export function isDarkMode(): boolean {
   return localStorage.DARK_MODE === 'true'
@@ -22,12 +19,14 @@ export function toggleDarkMode(): boolean {
  */
 export function setupTheme() {
   if (localStorage.DARK_MODE === 'false') return
+  const QUERY = '(prefers-color-scheme: dark)'
   setDarkMode(isDarkMode() || matchMedia(QUERY).matches)
 }
 
 /** Set the dark mode status to the provided one. */
 function setDarkMode(status: boolean): void {
   localStorage.DARK_MODE = status
+  const ROOT = document.documentElement
   if (status) {
     ROOT.setAttribute('data-theme', 'dark')
   } else {
