@@ -1,15 +1,15 @@
-import React, {useEffect} from 'react'
-import {BrowserRouter, Route, Switch, useHistory} from 'react-router-dom'
+import React, { lazy, useEffect } from 'react'
+import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom'
 import state from './lib/state'
 
-const Home = React.lazy(() => import('./views/Home'))
-const Chat = React.lazy(() => import('./views/Chat'))
-const Door = React.lazy(() => import('./views/Door'))
+const Home = lazy(() => import('./views/Home'))
+const Chat = lazy(() => import('./views/Chat'))
+const Door = lazy(() => import('./views/Door'))
 
 export const Routes = {
-  HOME:    '/',
-  CHAT:    '/chat',
-  LOG_IN:  '/login',
+  HOME: '/',
+  CHAT: '/chat',
+  LOG_IN: '/login',
   SIGN_UP: '/signup',
 }
 
