@@ -1,11 +1,11 @@
-import React, {Fragment} from 'react'
-import {Message} from '../../lib/firebase'
+import React from 'react'
+import { Message } from '../../lib/firebase'
 import Item from './Item'
 import state from '../../lib/state'
 
-function List({history}: {history: Message[]}) {
+function List({ history }: { history: Message[] }) {
   return (
-    <Fragment>
+    <>
       {history.map(({ author, date, message }) => (
         <Item
           key={getKey(author)}
@@ -15,7 +15,7 @@ function List({history}: {history: Message[]}) {
           time={date}
         />
       ))}
-    </Fragment>
+    </>
   )
 }
 

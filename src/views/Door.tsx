@@ -40,7 +40,7 @@ export default function Door({ text }: props) {
   function onInputChange(event: any) {
     const { name, value } = event.target
     setData(prev => ({ ...prev, [name]: value }))
-    switch(name) {
+    switch (name) {
       case 'username':
         usernameRef.current?.classList.remove('error')
         break

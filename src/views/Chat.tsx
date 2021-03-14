@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Navigation from '../parts/Navigation'
 import Sidebar from '../parts/Sidebar'
 import Messages from '../parts/Messages'
-import {Routes} from '../Chatty'
+import { Routes } from '../Chatty'
 import state from '../lib/state'
 
 function Allow() {

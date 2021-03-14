@@ -1,9 +1,9 @@
-import React, {Fragment, useState, useEffect, useRef} from 'react'
-import {getMessages, getRoom, Message} from '../../lib/firebase'
+import React, { Fragment, useState, useEffect, useRef } from 'react'
+import { getMessages, getRoom, Message } from '../../lib/firebase'
 import List from './List'
 import Icon from '../Icon'
 import * as rooms from '../../lib/rooms'
-import {dispatch} from '../../lib/reducer'
+import { dispatch } from '../../lib/reducer'
 import state from '../../lib/state'
 
 type props = {

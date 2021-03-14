@@ -1,14 +1,14 @@
-import React, {useState} from 'react'
-import {useHistory} from 'react-router-dom'
-import {input} from '@onerbs/daniela'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import { input } from '@onerbs/daniela'
 import Avatar from './Avatar'
 import Icon from './Icon'
 import Menu from './Menu'
-import {dispatch} from '../lib/reducer'
+import { dispatch } from '../lib/reducer'
 import * as rooms from '../lib/rooms'
 import * as users from '../lib/users'
 import * as validate from '../lib/validators'
-import {Routes} from '../Chatty'
+import { Routes } from '../Chatty'
 import state from '../lib/state'
 
 type props = {
@@ -27,7 +27,7 @@ export default function Navigation({ room, setRooms, closeRoom }: props) {
     input('Join a room', 'Name', validate.roomname).then(async room => {
       if (room) {
         await rooms.join(room).then(dispatch)
-        setRooms(prevState => ([ ...prevState, room ]))
+        setRooms(prevState => ([...prevState, room]))
       }
     })
   }
