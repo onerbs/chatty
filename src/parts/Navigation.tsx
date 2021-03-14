@@ -56,7 +56,7 @@ export default function Navigation({ room, setRooms, closeRoom }: props) {
         </span>
         <span>
           {room && <Icon name="close" title="Close" onClick={closeRoom}/>}
-          <Avatar to={state.username}/>
+          <Avatar value={state.username}/>
         </span>
       </div>
     </div>

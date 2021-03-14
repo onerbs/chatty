@@ -15,7 +15,7 @@ export default function Entry({ name, action }: entry) {
       className="middle entry brick"
       onClick={action}
     >
-      <Avatar to={name} size={40}/>
+      <Avatar value={name} size={40}/>
       <div className="padded brick">
         <div className="spread">
           <strong>{name}</strong>
