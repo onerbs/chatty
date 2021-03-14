@@ -7,7 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       'nushi.sass': '../node_modules/@onerbs/nushi/src/nushi.sass',
-      'daniela.scss': '../node_modules/@onerbs/daniela/styles.scss',
+      'daniela.sass': '../node_modules/@onerbs/daniela/daniela.sass',
       'chatty.sass': '../styles/chatty.sass',
     }
   }

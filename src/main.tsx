@@ -8,7 +8,7 @@ import React, { StrictMode } from 'react'
 import { render } from 'react-dom'
 
 import 'nushi.sass'
-import 'daniela.scss'
+import 'daniela.sass'
 import 'chatty.sass'
 
 import Chatty from './Chatty'
